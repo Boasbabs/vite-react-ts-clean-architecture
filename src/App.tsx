@@ -1,33 +1,36 @@
 import { useState } from 'react'
+import { Button, Image, Link, Text, Container, Heading, Stack } from '@chakra-ui/react';
 import reactLogo from './assets/react.svg'
-import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+    <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }}>
+      <Stack spacing={{ base: '4', md: '5' }} align="center">
+        <Stack direction='row'>
+          <Link href="https://vitejs.dev" target="_blank">
+            <Image src="/vite.svg" boxSize='100px' className="logo react" alt="Vite logo" />
+          </Link>
+          <Link href="https://reactjs.org" target="_blank">
+            <Image src={reactLogo} boxSize='100px' className="logo react" alt="React logo" />
+          </Link>
+        </Stack>
+        <Heading size={{ base: 'sm', md: 'md' }}>Vite + React Typescript</Heading>
+        <Button size="lg" onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
-        <p>
+        </Button>
+      </Stack>
+
+      <Stack py={{ base: '3', md: '6' }} align="center">
+        <Text>
           Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+        </Text>
+        <Text color="gray.500">
+          Click on the Vite and React logos to learn more
+        </Text>
+      </Stack>
+    </Container>
   )
 }
 
